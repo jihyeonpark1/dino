@@ -1,1 +1,13 @@
-hjij
+from selenium import webdriver
+import gymnasium as gym
+env_name = " "
+env = gym.make(env_name, options={})
+observation = env.rest()
+
+done = False
+while not done: 
+  action = env.action_space.sample()
+  observation, reward, done, info = env.step(action)
+  env.render(mode="human")
+
+env.close()
